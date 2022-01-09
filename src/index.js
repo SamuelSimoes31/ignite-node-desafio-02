@@ -10,7 +10,7 @@ app.use(cors());
 const users = [];
 
 function checksExistsUserAccount(request, response, next) {
-  const { username } = request;
+  const { username } = request.headers;
   const user = users.find((user) => user.username === username);
 
   if (!user) return response.status(404).json({ error: "Username not found!" });
